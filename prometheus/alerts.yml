@@ -1,0 +1,11 @@
+groups:
+  - name: assignment_alerts
+    rules:
+      - alert: ServiceDown
+        expr: up == 0
+        for: 10s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Service is down"
+          description: "Target {{ $labels.instance }} is unreachable."

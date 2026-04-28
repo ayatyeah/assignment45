@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment System Dashboard</title>
+</head>
+<body>
+    <h2>Products</h2>
+    <div id="products"></div>
+    <button onclick="createOrder(1)">Buy Laptop (ID: 1)</button>
+    <button onclick="createOrder(2)">Buy Phone (ID: 2)</button>
+    
+    <h2>Orders</h2>
+    <div id="orders"></div>
+
+    <script>
+        async function fetchProducts() {
+            const res = await fetch('/api/products');
+            const data = await res.json();
+            document.getElementById('products').innerText = JSON.stringify(data);
+        }
+
+        async function fetchOrders() {
+            const res = await fetch('/api/orders');
+            if(res.ok) {
+                const data = await res.json();
+                document.getElementById('orders').innerText = JSON.stringify(data);
+            } else {
+                document.getElementById('orders').innerText = "System Error: Service Unavailable";
+            }
+        }
+
+        async function createOrder(id) {
+            await fetch(`/api/orders/${id}`, { method: 'POST' });
+            fetchOrders();
+        }
+
+        fetchProducts();
+        fetchOrders();
+    </script>
+</body>
+</html>
