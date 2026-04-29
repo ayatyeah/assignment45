@@ -12,3 +12,6 @@ crash.*.log
 # Exclude secret variables
 *.tfvars
 *.tfvars.json
+
+.env
+
