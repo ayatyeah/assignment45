@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 import os
 import psycopg2
 import requests
@@ -10,8 +11,18 @@ Instrumentator().instrument(app).expose(app)
 DB_URL = os.getenv("DATABASE_URL")
 PRODUCT_SERVICE_URL = os.getenv("PRODUCT_SERVICE_URL", "http://product_service:8000")
 
+def validate_config() -> None:
+    missing = []
+    if not DB_URL:
+        missing.append("DATABASE_URL")
+    if not PRODUCT_SERVICE_URL:
+        missing.append("PRODUCT_SERVICE_URL")
+    if missing:
+        raise RuntimeError(f"Missing required environment variables: {', '.join(missing)}")
+
 @app.on_event("startup")
 def startup_event():
+    validate_config()
     try:
         conn = psycopg2.connect(DB_URL)
         cur = conn.cursor()
@@ -27,6 +38,15 @@ def startup_event():
         conn.close()
     except Exception as e:
         raise RuntimeError(f"Database initialization failed: {e}")
+
+@app.get("/health")
+def health_check():
+    try:
+        conn = psycopg2.connect(DB_URL)
+        conn.close()
+        return {"status": "ok"}
+    except Exception as exc:
+        return JSONResponse(status_code=503, content={"status": "degraded", "error": str(exc)})
 
 @app.post("/orders/{product_id}")
 def create_order(product_id: int):

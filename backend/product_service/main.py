@@ -4,6 +4,10 @@ from prometheus_fastapi_instrumentator import Instrumentator
 app = FastAPI()
 Instrumentator().instrument(app).expose(app)
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 PRODUCTS = {
     1: {"name": "Laptop", "price": 1000},
     2: {"name": "Phone", "price": 500}

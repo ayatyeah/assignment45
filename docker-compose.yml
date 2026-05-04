@@ -3,6 +3,8 @@ version: '3.8'
 services:
   db:
     image: postgres:15
+    env_file:
+      - .env
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -11,7 +13,12 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - app_network
-    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   api_gateway:
     image: nginx:alpine
@@ -25,24 +32,50 @@ services:
       - frontend
       - product_service
       - order_service
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost/ > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   frontend:
     build: ./frontend
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost/ > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   auth_service:
     build: ./backend/auth_service
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   product_service:
     build: ./backend/product_service
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   order_service:
     build: ./backend/order_service
+    env_file:
+      - .env
     environment:
       DATABASE_URL: ${DATABASE_URL}
       PRODUCT_SERVICE_URL: ${PRODUCT_SERVICE_URL}
@@ -50,16 +83,34 @@ services:
       - app_network
     depends_on:
       - db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   user_service:
     build: ./backend/user_service
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   chat_service:
     build: ./backend/chat_service
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   prometheus:
     image: prom/prometheus
@@ -69,6 +120,12 @@ services:
       - "9090:9090"
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost:9090/-/healthy > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana
@@ -78,6 +135,12 @@ services:
       - app_network
     depends_on:
       - prometheus
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://localhost:3000/api/health > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
 volumes:
   postgres_data:

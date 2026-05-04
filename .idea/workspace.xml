@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="877bc16c-5874-401c-8eaa-50b28483bb34" name="Changes" comment="security changes" />
+    <list default="true" id="877bc16c-5874-401c-8eaa-50b28483bb34" name="Changes" comment="security changes">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auth_service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auth_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth_service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/chat_service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/chat_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/chat_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/chat_service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/order_service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/order_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/order_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/order_service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/product_service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/product_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/product_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/product_service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user_service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user_service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user_service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/alerts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus/alerts.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +33,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="39" />
+    <option name="cachedIndexableFilesCount" value="44" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -46,29 +63,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/YeahAyat/Desktop/SRE/assignment45",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/YeahAyat/Desktop/SRE/assignment45&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\YeahAyat\Desktop\SRE\assignment45" />
@@ -91,6 +108,8 @@
       <updated>1777381743099</updated>
       <workItem from="1777381744134" duration="764000" />
       <workItem from="1777382758998" duration="1091000" />
+      <workItem from="1777454711918" duration="1865000" />
+      <workItem from="1777912768812" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="security changes">
       <option name="closed" value="true" />
@@ -100,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777382471948</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="security changes">
+      <option name="closed" value="true" />
+      <created>1777454745888</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1777454745888</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
