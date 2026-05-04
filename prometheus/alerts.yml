@@ -25,3 +25,11 @@ groups:
         annotations:
           summary: "High error rate"
           description: "5xx error rate is above 5% on {{ $labels.instance }}."
+      - alert: ContainerRestarted
+        expr: changes(container_start_time_seconds[5m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Container restarted"
+          description: "Container restart detected for {{ $labels.name }}."
